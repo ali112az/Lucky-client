@@ -1,4 +1,4 @@
-import "element-plus/theme-chalk/dark/css-vars.css"; //这句是暗黑模式切换
+import "element-plus/theme-chalk/dark/css-vars.css";
 import "@/assets/style/scss/index.scss";
 import "@/assets/style/scss/theme.scss";
 import "@/assets/style/scss/setting.scss";
