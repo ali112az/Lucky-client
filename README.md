@@ -1032,9 +1032,8 @@ http {
 
 ## 📞 联系我们
 
-- **项目主页**: [https://github.com/dennis9486/Lynk](https://github.com/dennis9486/Lynk)
-- **问题反馈**: [Issues](https://github.com/dennis9486/Lynk/issues)
-- **功能建议**: [Discussions](https://github.com/your-username/im-server/discussions)
+- **项目主页**: [https://github.com/Luckly-XYZ](https://github.com/dennis9486/Lynk)
+- **问题反馈**: [Issues](https://github.com/Luckly-XYZ/Lucky-client/issues)
 - **邮箱**: 382192293@qq.com
 
 ## 💬 项目状态

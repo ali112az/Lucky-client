@@ -34,7 +34,7 @@
 
         <br />
         <el-button :loading="loginLoading" class="login-button" type="primary" @click.prevent="login()"
-        >{{ $t("login.label") }}
+          >{{ $t("login.label") }}
         </el-button>
       </el-form>
 
@@ -65,9 +65,8 @@
 
         <a href="#" style="float: right" @click.prevent="selectForm('form')">{{ $t("login.account") }}</a>
         <br />
-        <el-button :loading="loginLoading" class="login-button" type="primary" @click="login()">{{
-            $t("login.label")
-          }}
+        <el-button :loading="loginLoading" class="login-button" type="primary" @click="login()"
+          >{{ $t("login.label") }}
         </el-button>
       </el-form>
 
@@ -211,8 +210,7 @@
     if (loginForm.value.principal !== "") {
       api
         .Sms({ phone: loginForm.value.principal })
-        .then((res: any) => {
-        })
+        .then((res: any) => {})
         .catch((err: any) => {
           ElMessage.error(t("login.qrcodeError"));
         });
@@ -242,7 +240,13 @@
     scanInterval.value = setInterval(async () => {
       // 调用接口检查二维码状态
       const result: any = await api.CheckQRCodeStatus({ qrCode });
-      if (result && result.qrCode === qrCode) {
+
+      if (result && result.code === qrCode) {
+        if (result && result.status == "EXPIRED") {
+          clearInterval(scanInterval.value);
+          ElMessage.error(t("login.qrcodeExpired"));
+          requestQRCode();
+        }
         // 扫码完成未授权
         if (result.status == "SCANNED") {
         }
@@ -252,11 +256,11 @@
           // 获取登录结果,使用后台传过来的临时密码登录
           let formData = {
             principal: qrCode,
-            credentials: result.data.password,
+            credentials: result.extra.password,
             authType: loginType.value
           };
           await userStore.login(formData);
-          ElMessage.success(t("login.loginSuccess"));
+          //ElMessage.success(t("login.loginSuccess"));
         }
       }
 

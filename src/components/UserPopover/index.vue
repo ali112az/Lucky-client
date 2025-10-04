@@ -160,8 +160,8 @@
   /* 性别图标（如果使用 svg sprite，可返回对应 id；否则返回 null） */
   const genderIconId = computed(() => {
     if (!props.contact) return null;
-    if (props.contact.gender === 0) return "#icon-nanxing";
-    if (props.contact.gender === 1) return "#icon-nvxing";
+    if (props.contact.gender === 1) return "#icon-nanxing";
+    if (props.contact.gender === 0) return "#icon-nvxing";
     return null;
   });
 

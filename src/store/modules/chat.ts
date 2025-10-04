@@ -539,7 +539,7 @@ export const useChatMainStore = defineStore(StoresEnum.CHAT, {
      */
     async _fetchChatFromServer(ownerId: string | number, toId: string | number) {
       try {
-        const res = (await api.GetChat({ fromId: ownerId, toId })) as Chats;
+        const res = (await api.GetChat({ ownerId, toId })) as Chats;
         if (!res) throw new Error("拉取会话信息失败");
         return res;
       } catch (err: any) {
