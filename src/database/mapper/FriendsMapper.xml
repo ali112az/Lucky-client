@@ -10,7 +10,7 @@
         location TEXT,
         black INTEGER,
         flag TEXT,
-        birthDay TEXT,
+        birthday TEXT,
         selfSignature TEXT,
         sequence INTEGER)
     </SQL>

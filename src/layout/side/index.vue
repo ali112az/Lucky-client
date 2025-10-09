@@ -5,7 +5,13 @@
 
     <!-- 顶部：头像 -->
     <div class="avatar-wrap">
-      <el-avatar ref="avatarRef" :class="avatarClass" :src="avatar" shape="square" @click="toggleAvatarPopover" />
+      <el-avatar
+        ref="avatarRef"
+        :class="avatarClass"
+        :src="userStore.avatar"
+        shape="square"
+        @click="toggleAvatarPopover"
+      />
       <el-popover
         ref="avatarPopoverRef"
         :virtual-ref="avatarRef"
@@ -14,7 +20,7 @@
         virtual-triggering
         width="260"
       >
-        <UserPopover :contact="userInfo" :is-me="true" />
+        <UserPopover :contact="userStore.userInfo" :is-me="true" />
       </el-popover>
     </div>
 
@@ -89,7 +95,7 @@
   const route = useRoute();
   const chatStore = useChatMainStore();
   const friendStore = useFriendsStore();
-  const { userInfo, avatar, loginOut } = useUserStore();
+  const userStore = useUserStore();
   const { state } = useWebSocketWorker();
 
   const avatarRef = ref<HTMLElement | null>(null);
@@ -164,7 +170,7 @@
 
   function logout() {
     ElMessage("退出登录");
-    loginOut();
+    userStore.loginOut();
     CloseMainWindow();
     ShowLoginWindow();
   }

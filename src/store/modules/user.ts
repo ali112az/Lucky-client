@@ -65,6 +65,31 @@ export const useUserStore = defineStore(StoresEnum.USER, {
       }
     },
 
+    // 更新用户信息
+    async updateUserInfo(profile: any) {
+      const res: any = await api.UpdateUserInfo(profile);
+      if (res) {
+        this.handleGetUserInfo();
+      } else {
+        console.error("更新用户信息失败", res?.message);
+      }
+    },
+
+    // 上传用户头像
+    async uploadUserAvatar(file: File) {
+      const formData = new FormData();
+      formData.append("file", file);
+      try {
+        const res: any = await api.uploadImage(formData);
+        if (!res) {
+          console.error("上传用户头像失败", res);
+        }
+        return res;
+      } catch (error) {
+        console.error("上传用户头像出错", error);
+      }
+    },
+
     // 获取用户信息
     async handleGetUserInfo() {
       try {

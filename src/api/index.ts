@@ -215,6 +215,9 @@ export default {
   /** 获取个人信息 */
   GetUserInfo: (params: any) => Http.get("/auth/api/v1/auth/info", { params }),
 
+  /** 获取用户信息 */
+  UpdateUserInfo: (data: any) => Http.post("/service/api/v1/user/update", data),
+
   /** 获取好友列表 */
   GetContacts: (params: any) => Http.get("/service/api/v1/relationship/contacts/list", { params }),
 
@@ -241,6 +244,9 @@ export default {
 
   /** 文件上传 */
   UploadFile: (data: any) => Http.upload("/service/api/v1/file/formUpload", data),
+
+  /// 图片上传
+  uploadImage: (data: FormData) => Http.upload("/upload/api/v1/media/image", data),
 
   // 异常上报
   ExceptionReport: (params: any) => Http.get("/service/api/v1/tauri/exception/report", { params })

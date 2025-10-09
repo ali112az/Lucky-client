@@ -36,7 +36,9 @@
 
           <el-form-item :label="$t('settings.profile.birthday')">
             <el-date-picker
-              v-model="profileForm.birthDay"
+              v-model="profileForm.birthday"
+              :clearable="true"
+              date-format="yyyy-MM-dd"
               :placeholder="$t('settings.profile.selectBirthday')"
               placement="bottom-start"
               type="date"
@@ -75,7 +77,7 @@
 
         <!-- 操作按钮 -->
         <el-col :span="24" class="actions">
-          <el-button type="primary">保存</el-button>
+          <el-button type="primary" @click="handleSubmit">{{ $t("profile.save") }} </el-button>
         </el-col>
       </el-row>
 
@@ -96,35 +98,34 @@
   const uploadRef = ref();
 
   // 表单数据
-  const profileForm = shallowReactive({
+  const profileForm = ref({
     name: "",
     gender: 1,
-    birthDay: "",
+    birthday: "",
     location: "",
     phone: "",
     selfSignature: ""
-  });
-
-  // 初始化表单数据
-  onMounted(() => {
-    const userInfo = userStore.userInfo;
-    profileForm.name = userInfo.name || "";
-    profileForm.gender = userInfo.gender || 1;
-    profileForm.birthDay = userInfo.birthDay || "";
-    profileForm.location = userInfo.location || "";
-    profileForm.phone = userInfo.phone || "";
-    profileForm.selfSignature = userInfo.selfSignature || "";
-
-    userAvatar.value = userInfo.avatar || "";
   });
 
   const handleAvatarSuccess = () => {
     uploadRef.value.submit();
   };
 
-  const handleFileChange = (file: File) => {
+  // 上传文件
+  const handleFileChange = async (file: File) => {
+    if (file.size > 1024 * 1024 * 2) {
+      ElMessage.error("上传头像图片大小不能超过 2MB");
+      return false;
+    }
+    if (file.type.indexOf("image") === -1) {
+      ElMessage.error("请上传图片");
+      return false;
+    }
     userAvatar.value = URL.createObjectURL(file);
-    // 这里可以添加头像上传到服务器的逻辑
+    if (file) {
+      const { path } = await userStore.uploadUserAvatar(file);
+      userAvatar.value = path;
+    }
     return false;
   };
 
@@ -132,15 +133,25 @@
   const handleSubmit = async () => {
     try {
       // 更新用户信息
-      // await userStore.updateUserInfo({
-      //     ...profileForm,
-      //     avatar: userAvatar.value || userStore.userInfo.avatar
-      // })
+      await userStore.updateUserInfo({
+        ...profileForm.value,
+        avatar: userAvatar.value || userStore.userInfo.avatar
+      });
       ElMessage.success("个人信息更新成功");
     } catch (error) {
       ElMessage.error("更新失败，请重试");
     }
   };
+
+  const init = () => {
+    profileForm.value = Object.assign({}, userStore.userInfo);
+    userAvatar.value = userStore.userInfo.avatar;
+  };
+
+  // 初始化表单数据
+  onMounted(() => {
+    init();
+  });
 </script>
 
 <style lang="scss" scoped>

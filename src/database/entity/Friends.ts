@@ -51,8 +51,8 @@ export default class Friends extends BaseEntity {
   flag?: string;
 
   /** 生日，格式 YYYY-MM-DD */
-  @Column("birthDay", "TEXT", true)
-  birthDay?: string;
+  @Column("birthday", "TEXT", true)
+  birthday?: string;
 
   /** 个性签名 */
   @Column("selfSignature", "TEXT", true)
