@@ -247,9 +247,9 @@
       @include scroll-bar();
 
       // 隐藏滚动条（非hover时）
-      &::-webkit-scrollbar-thumb {
-        background-color: transparent;
-      }
+      // &::-webkit-scrollbar-thumb {
+      //   background-color: transparent;
+      // }
     }
 
     .message-records__new-message-tip {
